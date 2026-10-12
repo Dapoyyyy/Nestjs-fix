@@ -8,11 +8,15 @@ async function bootstrap() {
   });
 
   // this config to enable validation
-  // this is mandatory config for you project
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true
-  }))
+  // this is mandatory config for your project
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
+
   await app.listen(process.env.PORT ?? 3000);
 }
 
+bootstrap();
